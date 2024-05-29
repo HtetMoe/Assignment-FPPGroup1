@@ -10,16 +10,13 @@ public class problem6 {
             if (a[i] <= min) {
                 min = a[i];
             }
-            else
-                second = a[i];
+            else{
+                if (second == min)
+                    second = a[i];
+                else
+                    second = (a[i] < second) ? a[i] : second;
+            }
 
-        }
-        if (second == min)
-            return second;
-
-        for(int i = 0; i < a.length; i++){
-            if (a[i] != min && a[i] < second)
-                second = a[i];
         }
         return second;
     }
