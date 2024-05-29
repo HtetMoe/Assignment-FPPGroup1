@@ -1,7 +1,6 @@
 public class Prog3 {
     public static void main(String[] args) {
-
-        String records = "231A,Light Bulb,123,Wilco,1.75:"+
+        String records = "231A,Light Bulb,123,Wilco,1.75:" +
                 "113D,Hairbrush,19,Aamco,3.75:" +
                 "521W,Shampoo,24,Acme,6.95:" +
                 "440Q,Dishwashing Detergent,20,Wilco,1.75:" +
@@ -25,19 +24,18 @@ public class Prog3 {
                 "933W,Cat Toy,15,Wilco,2.35:" +
                 "215A,Hair Ball,0,Little Jimmy,0.00:";
 
+        String[] rows = records.split(":");
+        String[] columns;
+        String[][] table = new String[rows.length][];
 
-        String [] arrSplit = records.split(":");
-        String [] arr1 ;
-        String [][] output = new String[arrSplit.length][];
+        for (int i = 0; i < rows.length; i++) {
+            columns = rows[i].split(",");
+            table[i] = new String[columns.length];
 
-        for (int i =0; i< arrSplit.length ; i++){
-            arr1 = arrSplit[i].split(",");
-            output[i] = new String [arr1.length];
-            for (int j =0; j< arr1.length ; j++){
-                output[i][j] = arr1[j];
+            for (int j = 0; j < columns.length; j++) {
+                table[i][j] = columns[j];
             }
-            System.out.println(output[i][0]);
-
+            System.out.println(table[i][0]);
         }
     }
 }
