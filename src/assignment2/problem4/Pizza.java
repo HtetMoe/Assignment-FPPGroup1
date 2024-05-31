@@ -1,4 +1,4 @@
-package Problem4;
+package assignment2.problem4;
 
 public class Pizza {
     final private PizzaSize pizzaSize;
