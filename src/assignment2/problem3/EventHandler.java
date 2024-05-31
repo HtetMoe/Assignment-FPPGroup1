@@ -14,11 +14,11 @@ public class EventHandler {
         Scanner scanner = new Scanner(System.in);
 
         //event name
-        System.out.println("Enter the event name");
+        System.out.println("Enter the event name : ");
         String name = scanner.nextLine();
 
         //event date
-        System.out.println("Enter the date of events in mm/dd/yyyy format");
+        System.out.println("Enter the date of events in mm/dd/yyyy format : ");
         LocalDate date;
         while (true) {
             try {
