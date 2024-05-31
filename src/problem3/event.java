@@ -6,6 +6,7 @@ import java.time.temporal.ChronoUnit;
 
 
 public class event {
+    int num;
     private String name;
     private LocalDate date;
     private LocalTime time;
