@@ -1,10 +1,11 @@
+package Problem2;
+
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Scanner;
 
 public class TestHeartRates {
     public static void main(String[] args) {
-        //HeartRates hr = new HeartRates("Asmaa", "Hesham", LocalDate.of(1993, 06, 24));
+        //Problem2.HeartRates hr = new Problem2.HeartRates("Asmaa", "Hesham", LocalDate.of(1993, 06, 24));
         HeartRates hr = new HeartRates();
         String firstName = hr.getFirst_name();
         hr.setFirst_name(firstName);
