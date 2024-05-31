@@ -1,87 +1,102 @@
-package problem2;
+package Problem2;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+import static java.lang.StringTemplate.STR;
 
 public class HeartRates {
 
-    public static final int MAX_RATE = 220;
-    public static final double LB = 0.5;
-    public static final double UB = 0.85;
-    public static final double RHR = 70.0;
 
-    private String firstName;
-    private String lastName;
-    private LocalDate birthDate;
+    private final int RHR = 70;
+    private  final  double LB = 0.5 ; //(Assign as a Constant)
+    private  final double UB = 0.85; // (Assign as a Constant)
+    private String first_name;
+    private String last_name;
+    private LocalDate birthdate;
 
+    public HeartRates (){
+        first_name = null;
+        last_name = null;
+        birthdate = null;
+    }
+    public  HeartRates (String first_name, String last_name, LocalDate birthdate){
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.birthdate  = birthdate;
+    }
 
-    public HeartRates(String firstName, String lastName, LocalDate birthDate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-M-dd");
+    Scanner sc = new Scanner(System.in);
+    public String getFirst_name() {
+        System.out.println("Please Enter Your First Name: ");
+        this.first_name = sc.nextLine();
+        return first_name;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+        //System.out.println("First Name: " + this.first_name);
+    }
+
+    public String getLast_name() {
+        System.out.println("Please Enter your Last name: ");
+        last_name = sc.nextLine();
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+        //System.out.println("Last Name : " + this.last_name);
+    }
+
+    public LocalDate getBirthdate() {
+        System.out.println("Enter you birthdate in the format yyyy-m-dd");
+        String input = sc.nextLine();
+        this.birthdate = LocalDate.parse(input, formatter);
+        return birthdate;
+    }
+
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public Period AgeCalculator (LocalDate birthdate){
         LocalDate today = LocalDate.now();
-        Period period = Period.between(birthDate, today);
+        return Period.between(birthdate, today);
+    }
+    // Return MHR
+    public double MaxHeartRate(Period age){
+        return 220 - age.getYears();
     }
 
-    public String getFirstName() {
-        return firstName;
+    //Calculate Average Heart Rate (AHR) = MHR – RHR.
+    public double AvgHeartRate (double MHR){
+        return MHR - RHR;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    //Lower Boundary Target Heart Rate (LBTHR)= (AHR*LB) + RHR,
+    public double LBTHR (double AHR){
+        return (AHR * LB) + RHR;
     }
 
-    public String getLastName() {
-        return lastName;
+    //Calculate Upper Boundary Target Heart Rate (UBTHR) = (AHR*UB) + RHR
+    public double UBTHR (double AHR){
+        return (AHR * UB) + RHR;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    // method that calculates and prints the person’s target heart rate range.
+    public void HRR (double UBTHR, double LBTHR){
+        System.out.printf("The Target Heart Rate Range is Between %f and %f %n" , LBTHR, UBTHR);
     }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public int getAge() {
-        LocalDate today = LocalDate.now();
-        Period period = Period.between(birthDate, today);
-        return period.getYears();
-    }
-    public int getMaxiHeartRage() {
-        return MAX_RATE - getAge();
-    }
-
-    public double getAverageHeartRage() {
-        return getMaxiHeartRage() - RHR;
-    }
-
-    public void showTargetHeartRage(){
-        double ahr = getAverageHeartRage();
-        double lbthr = ahr*LB + RHR;
-        double ubthr = ahr*UB + RHR;
-        System.out.println("The target heart rage is between " + lbthr + " and " + ubthr);
-    }
-
-    @Override
-    public String toString() {
-        String info;
-        info = String.format("""
-            First Name: %s
-            Last Name: %s
-            Birth Date: %s
-            Maximum Heart Rage: %s
-            """,
-                firstName,
-                lastName,
-                birthDate,
-                getMaxiHeartRage()
-                );
-        return info;
+    public String toString(){
+        return STR."""
+        First Name : \{first_name}
+        Last Name: \{last_name}
+        Age : \{AgeCalculator(birthdate).getYears()}
+        Date of Birth : \{birthdate}""";
     }
 
 }

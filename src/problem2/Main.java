@@ -27,6 +27,6 @@ public class Main {
         scanner.close();
         HeartRates hr = new HeartRates(firstName, lastName, birthDate);
         hr.showTargetHeartRage();
-        System.out.println(hr);
+        System.out.println();
     }
 }

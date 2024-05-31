@@ -27,6 +27,6 @@ public class problem4 {
             ret[i] = result[i];
         }
         return ret;
-        
+
     }
 }
