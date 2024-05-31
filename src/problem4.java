@@ -27,10 +27,5 @@ public class problem4 {
             ret[i] = result[i];
         }
         return ret;
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> 8fdb736e28b72efae30c467ac3dcac7e61b0dd13
     }
 }
