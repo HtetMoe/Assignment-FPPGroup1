@@ -105,7 +105,7 @@ public class HeartRates {
         return STR."""
                 First Name : \{this.first_name}
                 Last Name : \{this.last_name}
-                Age : \{birthdate.getYear()}
+                Age : \{AgeCalculator(this.birthdate).getYears()}
                 Date of Birth : \{this.birthdate}
                 Maximum Heart Rate : \{mhr}
                 """;
