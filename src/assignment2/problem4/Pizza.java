@@ -4,9 +4,9 @@ public class Pizza {
     final private PizzaSize pizzaSize;
     final private PizzaType pizzaType;
     final private int quantity;
-    public static final double TAX_RATES = 0.3;
+    public static final double TAX_RATES = 0.03;
 
-    Pizza(PizzaSize pizzaSize, PizzaType pizzaType, int quantity) {
+    public Pizza(PizzaSize pizzaSize, PizzaType pizzaType, int quantity) {
         this.pizzaType = pizzaType;
         this.pizzaSize = pizzaSize;
         this.quantity = quantity;
@@ -40,7 +40,7 @@ public class Pizza {
                 Price: %.2f
                 Tax: %.2f
                 Total Price: %.2f
-                """, pizzaSize, pizzaType, quantity, price, tax, price+tax);
+                """, pizzaSize, pizzaType, quantity, price, tax, price + tax);
 
     }
 
