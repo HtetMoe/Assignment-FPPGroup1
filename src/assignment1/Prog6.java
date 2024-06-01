@@ -1,3 +1,5 @@
+package assignment1;
+
 public class Prog6 {
     public static void main(String[] args) {
         int[] input = {2, 21, 3, 45, 0, 12, 18, 6, 3, 1, 0, 22};
