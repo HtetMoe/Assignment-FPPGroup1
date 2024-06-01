@@ -1,3 +1,5 @@
+package assignment1;
+
 public class Prog3 {
     public static void main(String[] args) {
         String records = "231A,Light Bulb,123,Wilco,1.75:" +
