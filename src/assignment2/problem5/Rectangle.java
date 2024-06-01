@@ -6,7 +6,7 @@ final public class Rectangle {
 
     public Rectangle(double length, double width) {
         this.length = length;
-        this.width = length;
+        this.width = width;
     }
 
     public double computeArea(){
