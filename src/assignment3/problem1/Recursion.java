@@ -1,4 +1,4 @@
-package Assignemnt3;
+package assignment3.problem1;
 
 public class Recursion {
     public static void main(String[] args) {
