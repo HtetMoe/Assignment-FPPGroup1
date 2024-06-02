@@ -11,17 +11,17 @@ public class ReverseArray {
     }
 
     //public utility method
-    public static void reverse(int[] array) {
-        reverse(array, 0, array.length - 1);
+    public static int[] reverse(int[] array) {
+        return reverse(array, 0, array.length - 1);
     }
 
     //private recursive method
-    private static void reverse(int[] array, int start, int end) {
+    private static int[] reverse(int[] array, int start, int end) {
         System.out.println("start : " + start + " end : " + end);
 
         //base case, check the index
         if (start >= end)
-            return;
+            return array;
 
         //swap
         int temp = array[start];
@@ -29,7 +29,7 @@ public class ReverseArray {
         array[end] = temp;
 
         //recursive
-        reverse(array, start + 1, end - 1);
+        return reverse(array, start + 1, end - 1);
     }
 
 }
