@@ -1,4 +1,4 @@
-package Problem2;
+package assignment2.Problem2;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -8,8 +8,6 @@ import java.util.Scanner;
 import static java.lang.StringTemplate.STR;
 
 public class HeartRates {
-
-
     private final int RHR = 70;
     private  final  double LB = 0.5 ; //(Assign as a Constant)
     private  final double UB = 0.85; // (Assign as a Constant)
