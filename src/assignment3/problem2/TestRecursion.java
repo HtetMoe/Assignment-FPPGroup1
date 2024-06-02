@@ -1,5 +1,6 @@
-package Assignemnt3;
+package assignment3.problem2;
 
+import assignment3.problem1.Recursion;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
