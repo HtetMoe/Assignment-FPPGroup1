@@ -5,26 +5,37 @@ import java.time.Period;
 
 public class TestHeartRates {
     public static void main(String[] args) {
-        //assignment2.Problem2.HeartRates hr = new assignment2.Problem2.HeartRates("Asmaa", "Hesham", LocalDate.of(1993, 06, 24));
         HeartRates hr = new HeartRates();
+
+        //first name
         String firstName = hr.getFirst_name();
         hr.setFirst_name(firstName);
 
+        //last name
         String lastName = hr.getLast_name();
         hr.setLast_name(lastName);
 
+        //birthdate
         LocalDate birthdate = hr.getBirthdate();
         hr.setBirthdate(birthdate);
 
+        //a.age
         Period Age = hr.AgeCalculator(birthdate);
+
+        //b.max heart rate
         double maxHeartRate = hr.MaxHeartRate(Age);
+
+        //avg heart rate
         double avgHeartRate = hr.AvgHeartRate(maxHeartRate);
+
         double lowerBound = hr.LBTHR(avgHeartRate);
         double uberBound = hr.UBTHR(avgHeartRate);
+
+        //c. target heart rage
         hr.HRR(lowerBound, uberBound);
 
-        String str = hr.toString();
-        System.out.println(str);
-        System.out.println("Maximum Heart Rate: " + maxHeartRate);
+        //d. override the toString method
+        System.out.println(hr.toString(maxHeartRate));
+
     }
 }

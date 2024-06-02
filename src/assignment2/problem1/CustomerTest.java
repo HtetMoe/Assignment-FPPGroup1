@@ -9,7 +9,6 @@ public class CustomerTest {
      */
 
     public static void main(String[] args) {
-
         //customer one
         Customer c1 = new Customer("Customer", "A", "11111");
         c1.setBillingAddress(new Address("1000N, 4th St", "Chicago", "Illinois", "52557"));
