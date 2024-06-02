@@ -15,7 +15,8 @@ public class ReverseArray {
         reverse(array, 0, array.length - 1);
     }
 
-    public static void reverse(int[] array, int start, int end) {
+    //private recursive method
+    private static void reverse(int[] array, int start, int end) {
         System.out.println("start : " + start + " end : " + end);
 
         //base case, check the index

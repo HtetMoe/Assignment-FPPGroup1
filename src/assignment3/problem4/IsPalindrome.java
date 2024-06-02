@@ -15,7 +15,8 @@ public class IsPalindrome {
         return checkIsPalindrome(s, 0, s.length() - 1);
     }
 
-    public static boolean checkIsPalindrome(String s, int start, int end) {
+    //private recursive method
+    private static boolean checkIsPalindrome(String s, int start, int end) {
         System.out.println("start: " + start + " end: " + end);
 
         //base case
