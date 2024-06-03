@@ -11,7 +11,7 @@ public class FindMax {
             throw new IllegalArgumentException("illegal array");
         return find(a, 0);
     }
-    public static int find(int[] a, int index) {
+    private static int find(int[] a, int index) {
         if (index == a.length - 1) {
             return a[index];
         }
