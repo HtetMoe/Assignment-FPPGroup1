@@ -13,10 +13,10 @@ public class Driver {
 
 
         ((BasePlusCommisionEmployee)emp1).setGrossSales(50000.0);
-        ((BasePlusCommisionEmployee)emp1).setCommissionRate(0.15);
+        ((BasePlusCommisionEmployee)emp1).setCommissionRate(15);
         ((BasePlusCommisionEmployee)emp1).setBaseSalary(8000.0);
         ((CommissionEmployee)emp2).setGrossSales(40000.0);
-        ((CommissionEmployee)emp2).setCommissionRate(0.25);
+        ((CommissionEmployee)emp2).setCommissionRate(25);
 
 
         ((HourlyEmployee)emp3).setWages(50.0);
