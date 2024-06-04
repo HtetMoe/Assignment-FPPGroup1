@@ -24,7 +24,7 @@ public class CommissionEmployee extends Empolyee{
     }
 
     public double getPayment(){
-        return getGrossSales()*getCommissionRate();
+        return getGrossSales()*getCommissionRate()/100;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class CommissionEmployee extends Empolyee{
                 Last name: %s
                 SSN: %s
                 GrossSales: %.2f
-                CommissionRate: %.2f
+                CommissionRate: %.2f%%
                 Payment: %.2f
                 """,
                 super.getFirstName(),
