@@ -39,35 +39,42 @@ public class Conversion extends JFrame {
                 double mileVal = Double.parseDouble(mile.getText());
                 double kilometerVal = Double.parseDouble(kilometer.getText());
                 if(mileVal != 0.0){
-                    //kilometer.setText(String.valueOf(mileVal * MILE_2_KILOMETER));
-                    kilometer.setText(String.format("%.4f", mileVal * MILE_2_KILOMETER));
+                    kilometer.setText(String.format("%.2f", mileVal * MILE_2_KILOMETER));
+                    mile.setText(String.format("%.2f", mileVal));
                 }
-                else if (kilometerVal != 0.0)
-                    //mile.setText(String.valueOf(kilometerVal / MILE_2_KILOMETER));
+                else if (kilometerVal != 0.0){
                     mile.setText(String.format("%.2f", kilometerVal / MILE_2_KILOMETER));
+                    kilometer.setText(String.format("%.2f", kilometerVal));
+                }
                 double poundVal = Double.parseDouble(pound.getText());
                 double kilogramVal = Double.parseDouble(kilogram.getText());
                 if(poundVal != 0.0){
                     kilogram.setText(String.format("%.2f", poundVal * POUND_2_KILOGRAM));
+                    pound.setText(String.format("%.2f", poundVal));
                 }
                 else if (kilogramVal != 0.0){
                     pound.setText(String.format("%.2f", kilogramVal / POUND_2_KILOGRAM));
+                    kilogram.setText(String.format("%.2f", kilogramVal));
                 }
                 double gallonVal = Double.parseDouble(gallon.getText());
                 double literVal = Double.parseDouble(liter.getText());
                 if (gallonVal != 0.0){
                     liter.setText(String.format("%.2f", gallonVal * GALLON_2_LITER));
+                    gallon.setText(String.format("%.2f", gallonVal));
                 }
                 else if (literVal != 0.0){
                     gallon.setText(String.format("%.2f", literVal / GALLON_2_LITER));
+                    liter.setText(String.format("%.2f", literVal));
                 }
                 double fahrenheitVal = Double.parseDouble(fahrenheit.getText());
                 double centigradeVal = Double.parseDouble(centigrade.getText());
                 if (fahrenheitVal != 0.0){
                     centigrade.setText(String.format("%.6f", fahrenheitToCentigrade(fahrenheitVal)));
+                    fahrenheit.setText(String.format("%.6f", fahrenheitVal));
                 }
                 else if (centigradeVal != 0.0){
                     fahrenheit.setText(String.format("%.6f", CentigradeToFahrenheit(centigradeVal)));
+                    centigrade.setText(String.format("%.6f", centigradeVal));
                 }
 
             }
