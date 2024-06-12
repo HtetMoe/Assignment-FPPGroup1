@@ -6,65 +6,53 @@ public class DoublyLinkedList {
     Node header;
     DoublyLinkedList(){
         header = new Node();
-        header.previous = header;
-        header.next = header;
     }
     //1. adds to the end of the list
     public void addLast(String item){
         //implement
-        if(item == null){
+        if (item == null)
+            //do nothing if item is null
             return;
-        }
+
         Node newNode = new Node();
         newNode.value = item;
+        // newNode would add at last, so the next of newNode always point to the null
         newNode.next = null;
-        // previous of header connect to the last one
-        // both previous and next of header point to header itself if the linklist is empty
-        if(header.previous == header){
-            //first element
-            newNode.previous = header;
-            header.next = newNode;
+
+        Node c = header;
+        while(null != c.next){
+            // find the last node
+            c = c.next;
         }
-        else {
-            //last element in a non-empty linklist
-            //next of last node connect to the newNode
-            header.previous.next = newNode;
-            //the previous of newNode connect to the second last node
-            newNode.previous = header.previous;
-        }
-        //previous of the header point to the last one
-        header.previous = newNode;
-        //the next of the last node point to the header
-        newNode.next = header;
+        c.next = newNode;
+        newNode.previous = c;
+
 
     }
     // 2. Remove by passing object
     public boolean remove(String item){
         //Implement
-        if(item == null || header.next == header){
+        if (item == null)
             return false;
-        }
-        //start from the 1st node of the linklist
-        Node currentNode = header.next;
-        while(currentNode != header){
-            if(currentNode.value.equals(item)){
-                // find node
-                // because the non-empty double link list is a circle - last node connect to the header
-                // in this loop, there is no need to check if the next of a node is NULL
 
-                //previous node point to the next node
-                currentNode.previous.next = currentNode.next;
-                //next node connect to the previous node
-                currentNode.next.previous = currentNode.previous;
-                //remove and reset current node
-                currentNode.next = null;
-                currentNode.previous = null;
-                currentNode.value = null;
+        Node c = header;
+        while(null != c.next){
+            c = c.next;
+            if (c.value.equals(item)){
+                c.value = null;
+                if(c.next == null){
+                    // last node case
+                    c.previous.next = null;
+                }
+                else
+                    c.next.previous = c.previous;
+
+                c.previous.next = c.next;
+                c.previous = null;
+                c.next = null;
                 return true;
             }
-            currentNode = currentNode.next;
         }
-        //empty link list or element is not in the list
         return false;
     }
 
@@ -72,32 +60,35 @@ public class DoublyLinkedList {
 
     public boolean removeFirst() {
         // Implement
-        if(header.previous == header){
+        if (header.next == null)
             return false;
-        }
-        Node currentNode = header.next;
-        header.next = currentNode.next;
-        currentNode.next.previous = header;
-        currentNode.previous = null;
-        currentNode.value = null;
-        currentNode.next = null;
+
+        Node c = header.next;
+        header.next = c.next;
+        if (c.next != null)
+            c.next.previous = header;
+        c.next = null;
+        c.previous = null;
+        c.value = null;
         return true;
     }
 
 
     // 4. Prints the list from last to first
     public void printReverse() {
-
         // Implement
-        if(header.previous == header){
+        if (header.next == null){
             System.out.println("[NULL]");
             return;
         }
-        Node currentNode = header.previous;
-        while(currentNode != header){
-            System.out.print(currentNode.value+" ");
-            System.out.print("-> ");
-            currentNode = currentNode.previous;
+        Node c = header.next;
+        while(null != c.next){
+            c = c.next;
+        }
+        while(c != header){
+            System.out.print(c.value);
+            System.out.print(" -> ");
+            c = c.previous;
         }
         System.out.println("Header");
     }
@@ -110,10 +101,7 @@ public class DoublyLinkedList {
 
     }
     private void toString(StringBuilder sb, Node n) {
-        if(n.next == header){
-            sb.append(" " + n.value);
-            return;
-        }
+        if(n==null) return;
         if(n.value != null) sb.append(" " + n.value);
         toString(sb, n.next);
     }
@@ -144,7 +132,10 @@ public class DoublyLinkedList {
         System.out.println("Try to remove Steve: " + list.remove("Steve"));
         list.printReverse();
         System.out.println(list);
+        System.out.println("Try to remove first " + list.removeFirst());
+        System.out.println(list);
 
         // Call all your implemented Methods
     }
 }
+
