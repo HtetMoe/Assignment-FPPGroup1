@@ -85,12 +85,14 @@ public class DoublyLinkedList {
         while(null != c.next){
             c = c.next;
         }
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
         while(c != header){
-            System.out.print(c.value);
-            System.out.print(" -> ");
+            sb.append(c.value + " ");
             c = c.previous;
         }
-        System.out.println("Header");
+        sb.append("]");
+        System.out.println(sb.toString());
     }
     @Override
     public String toString() {
