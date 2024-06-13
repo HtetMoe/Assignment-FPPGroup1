@@ -99,7 +99,7 @@ public class StringUtility extends JFrame{
             }
             char firstChar = str.charAt(0);
 
-            if (result.indexOf(firstChar) == -1) {
+            if (result.lastIndexOf(firstChar) == -1) {
                 result += firstChar;
             }
 
