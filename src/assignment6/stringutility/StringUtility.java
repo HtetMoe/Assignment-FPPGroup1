@@ -21,7 +21,7 @@ public class StringUtility extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("String Utility");
         // Provide the frame width and height
-        setSize(300, 400);
+        setSize(500, 200);
         // Make your screen center
         setLocationRelativeTo(null);
         setResizable(true);// If you wish
