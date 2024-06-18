@@ -12,24 +12,25 @@ public class CustomerAccount {
     }
 
     //deposit
-    public boolean deposit(double amount) {
-        if (amount <= 0)
+    public boolean deposit(double inputAmount) {
+        if (inputAmount <= 0)
             return false;
-        balance = balance + amount;
+
+        balance = balance + inputAmount;
         return true;
     }
 
     //withdraw
-    public boolean withdraw(double amount) throws InsufficientFundsException, MinimumBalanceException {
-        if (amount <= 0) return false;
+    public boolean withdraw(double inputAmount) throws InsufficientFundsException, MinimumBalanceException {
+        if (inputAmount <= 0) return false;
 
-        if (amount > balance)
+        if (inputAmount > balance)
             throw new InsufficientFundsException("Exception! -> your Withdraw amount exceeds the current balance.");
 
-        if (balance - amount < 100)
+        if (balance - inputAmount < 100)
             throw new MinimumBalanceException("Exception! -> your Balance cannot be below $100 after withdrawal.");
 
-        balance -= amount; // deduct from balance
+        balance -= inputAmount; // deduct from balance
         return true;
     }
 
